@@ -49,7 +49,16 @@ function osx_activity_monitor_sort_by_column_in_direction {
 
   defaults write com.apple.ActivityMonitor SortColumn -string $value
 
-  local mode; if [[ "$2" == "ascending" ]]; then mode="1"; else mode="0"; fi; shift 1;
+  local mode; 
+
+  case "$2" in
+  descending)
+    mode="0";;
+  ascending)
+    mode="1";;
+  *)
+    mode="$1";;
+  esac
 
   defaults write com.apple.ActivityMonitor SortDirection -int $mode
 }
