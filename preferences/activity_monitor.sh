@@ -3,7 +3,10 @@
 
 # Show the main window when launching Activity Monitor
 function osx_activity_monitor_open_main_window {
-  local enabled; if [[ "$1" == "enabled" ]]; then enabled="true"; else enabled="false"; fi; shift 1;
+  local enabled; if [[ "$1" == "enabled" ]]; then enabled="true"; else enabled="false"; fi;
+
+  echo "PREFERENCE: Activity Monitor - Open main window enabled is ${enabled}."
+  shift 1;
 
   defaults write com.apple.ActivityMonitor OpenMainWindow -bool $enabled
 }
@@ -19,6 +22,9 @@ function osx_activity_monitor_icon_mode {
       mode="$1";;
   esac
 
+  echo "PREFERENCE: Activity Monitor - Dock icon graph mode is ${mode} ($1)."
+  shift 1;
+
   defaults write com.apple.ActivityMonitor IconType -int $mode
 }
 
@@ -32,6 +38,9 @@ function osx_activity_monitor_processes_to_list {
   *)
     mode="$1";;
   esac
+
+  echo "PREFERENCE: Activity Monitor - Show processes as list items mode is ${mode} ($1)."
+  shift 1;
 
   defaults write com.apple.ActivityMonitor ShowCategory -int $mode
 }
@@ -47,6 +56,9 @@ function osx_activity_monitor_sort_by_column_in_direction {
     value="$1";;
   esac
 
+  echo "PREFERENCE: Activity Monitor - Sort column value is ${value} ($1)."
+  shift 1;
+
   defaults write com.apple.ActivityMonitor SortColumn -string $value
 
   local mode; 
@@ -59,6 +71,9 @@ function osx_activity_monitor_sort_by_column_in_direction {
   *)
     mode="$1";;
   esac
+
+  echo "PREFERENCE: Activity Monitor - Sort direction mode is ${mode} ($1)."
+  shift 1;
 
   defaults write com.apple.ActivityMonitor SortDirection -int $mode
 }

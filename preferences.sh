@@ -43,8 +43,8 @@ function osx_preferences_apply {
 
   # Give the system time to commit changes from cache
   for (( i = 0; i < 20; i++ )); do
-    echo "."; sleep 1;
-    echo "."; sleep 2;
+    printf "."; sleep 1;
+    printf "."; sleep 2;
   done
 
   echo ""
