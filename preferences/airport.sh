@@ -24,3 +24,15 @@ function osx_airport_join_mode {
 
   sudo $path_to_airport_binary JoinMode=${mode}
 }
+
+# Set what to do when none of the preferred networks are available
+#
+# Modes: Prompt | JoinOpen | KeepLooking | DoNothing
+function osx_airport_join_mode_fallback {
+  local mode="$1";
+
+  echo "PREFERENCE: Airport - Fallback when preferred networks are not available mode is ${mode} ($1)."
+  shift 1;
+
+  sudo $path_to_airport_binary JoinModeFallback=${mode}
+}
