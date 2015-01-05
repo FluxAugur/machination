@@ -6,7 +6,7 @@ function install_profile {
   local profile_name="$1"; shift 1;
 
   if [ -x "./profiles/${profile_name}" ]; then
-    echo "PROFILE: ${profile_name}..."
+    echo "~ PROFILE: ${profile_name}..."
 
     source "./profiles/${profile_name}.sh"
   else

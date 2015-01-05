@@ -7,7 +7,7 @@ path_to_airport_binary="/System/Library/PrivateFrameworks/Apple80211.framework/V
 function osx_airport_disconnect_on_logout {
   local enabled; if [[ "$1" == "enabled" ]]; then enabled="YES"; else enabled="NO"; fi
 
-  echo "PREFERENCE: Airport - Toggle \"disconnect on logout\" enabled is ${enabled}."
+  echo "  + PREFERENCE: Airport - Toggle \"disconnect on logout\" enabled is ${enabled}."
   shift 1;
 
   sudo $path_to_airport_binary prefs DisconnectOnLogout=${enabled}
@@ -19,10 +19,10 @@ function osx_airport_disconnect_on_logout {
 function osx_airport_join_mode {
   local mode="$1";
 
-  echo "PREFERENCE: Airport - Join when preferred networks are available mode is ${mode} ($1)."
+  echo "  + PREFERENCE: Airport - Join when preferred networks are available mode is ${mode} ($1)."
   shift 1;
 
-  sudo $path_to_airport_binary JoinMode=${mode}
+  sudo $path_to_airport_binary prefs JoinMode=${mode}
 }
 
 # Set what to do when none of the preferred networks are available
@@ -31,17 +31,17 @@ function osx_airport_join_mode {
 function osx_airport_join_mode_fallback {
   local mode="$1";
 
-  echo "PREFERENCE: Airport - Fallback when preferred networks are not available mode is ${mode} ($1)."
+  echo "  + PREFERENCE: Airport - Fallback when preferred networks are not available mode is ${mode} ($1)."
   shift 1;
 
-  sudo $path_to_airport_binary JoinModeFallback=${mode}
+  sudo $path_to_airport_binary prefs JoinModeFallback=${mode}
 }
 
 # Toggle Airport "Remember recent networks" preference
 function osx_airport_remember_recent_networks {
   local enabled; if [[ "$1" == "enabled" ]]; then enabled="YES"; else enabled="NO"; fi
 
-  echo "PREFERENCE: Airport - Toggle \"remember recent networks\" enabled is ${enabled}."
+  echo "  + PREFERENCE: Airport - Toggle \"remember recent networks\" enabled is ${enabled}."
   shift 1;
 
   sudo $path_to_airport_binary prefs RememberRecentNetworks=${enabled}
@@ -51,7 +51,7 @@ function osx_airport_remember_recent_networks {
 function osx_airport_require_password_for_computer_to_computer_networks {
   local enabled; if [[ "$1" == "enabled" ]]; then enabled="YES"; else enabled="NO"; fi
 
-  echo "PREFERENCE: Airport - Toggle \"require password for computer-to-computer networks\" enabled is ${enabled}."
+  echo "  + PREFERENCE: Airport - Toggle \"require password for computer-to-computer networks\" enabled is ${enabled}."
   shift 1;
 
   sudo $path_to_airport_binary prefs RequireAdminIBSS=${enabled}  
@@ -61,7 +61,7 @@ function osx_airport_require_password_for_computer_to_computer_networks {
 function osx_airport_require_password_to_change_networks {
   local enabled; if [[ "$1" == "enabled" ]]; then enabled="YES"; else enabled="NO"; fi
 
-  echo "PREFERENCE: Airport - Toggle \"require password to change networks\" enabled is ${enabled}."
+  echo "  + PREFERENCE: Airport - Toggle \"require password to change networks\" enabled is ${enabled}."
   shift 1;
 
   sudo $path_to_airport_binary prefs RequireAdminNetworkChange=${enabled}    
@@ -71,7 +71,7 @@ function osx_airport_require_password_to_change_networks {
 function osx_airport_require_password_to_toggle_power {
   local enabled; if [[ "$1" == "enabled" ]]; then enabled="YES"; else enabled="NO"; fi
 
-  echo "PREFERENCE: Airport - Toggle \"require password to toggle power\" enabled is ${enabled}."
+  echo "  + PREFERENCE: Airport - Toggle \"require password to toggle power\" enabled is ${enabled}."
   shift 1;
 
   sudo $path_to_airport_binary prefs RequireAdminPowerToggle=${enabled}  
