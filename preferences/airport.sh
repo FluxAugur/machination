@@ -56,3 +56,13 @@ function osx_airport_require_password_for_computer_to_computer_networks {
 
   sudo $path_to_airport_binary prefs RequireAdminIBSS=${enabled}  
 }
+
+# Toggle Airport "Require password to change networks" preference
+function osx_airport_require_password_to_change_networks {
+  local enabled; if [[ "$1" == "enabled" ]]; then enabled="YES"; else enabled="NO"; fi
+
+  echo "PREFERENCE: Airport - Toggle \"require password to change networks\" enabled is ${enabled}."
+  shift 1;
+
+  sudo $path_to_airport_binary prefs RequireAdminNetworkChange=${enabled}    
+}
