@@ -22,7 +22,7 @@ function set_preferences {
   # Chrome Preferences
   chrome_use_system_print_dialog                                      enabled
   chrome_allow_swipe_to_navigate                                      disabled
-  chrome_allow_extension_install_sources                              "https://gist.githubusercontent.com/"             "http://userscripts.org/*"
+  chrome_allow_extension_install_sources                              'https://gist.githubusercontent.com/'             'http://userscripts.org/*'
 
   osx_preferences_apply
 }

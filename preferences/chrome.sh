@@ -25,14 +25,8 @@ function chrome_allow_swipe_to_navigate {
 
 # Allow Chrome and Canary extensions to be installed from additional sources
 function chrome_allow_extension_install_sources {
-  local sources="$@";
+  echo "  + PREFERENCE: Google Chrome - Additional extension installation sources are $@."
 
-  printf "  + PREFERENCE: Google Chrome - Additional extension installation sources are"
-  for source in "$@"; do
-    printf " ${source},"
-  done
-  printf ".\n"
-
-  defaults write com.google.Chrome ExtensionInstallSources -array $sources
-  defaults write com.google.Chrome.canary ExtensionInstallSources -array $sources
+  defaults write com.google.Chrome ExtensionInstallSources -array $@
+  defaults write com.google.Chrome.canary ExtensionInstallSources -array $@
 }
