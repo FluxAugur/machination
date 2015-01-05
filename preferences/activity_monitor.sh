@@ -35,3 +35,21 @@ function osx_activity_monitor_processes_to_list {
 
   defaults write com.apple.ActivityMonitor ShowCategory -int $mode
 }
+
+# Show Activity Monitor results sorted by a column (value) in a direction (mode)
+function osx_activity_monitor_sort_by_column_in_direction {
+  local value;
+
+  case "$1" in
+  cpu_usage)
+    value="CPUUsage";;
+  *)
+    value="$1";;
+  esac
+
+  defaults write com.apple.ActivityMonitor SortColumn -string $value
+
+  local mode; if [[ "$2" == "ascending" ]]; then mode="1"; else mode="0"; fi; shift 1;
+
+  defaults write com.apple.ActivityMonitor SortDirection -int $mode
+}
