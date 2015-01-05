@@ -26,7 +26,10 @@ function set_preferences {
 
   # Dashboard Preferences
   osx_dashboard                                                       disabled
-  
+
+  # Debugging Preferences
+  osx_debug_mode                                                      enabled
+
   # Printing Preferences
   osx_printing_quit_when_finished                                     enabled
 
