@@ -1,3 +1,6 @@
+# Install #
+###########
+
 #!/bin/sh
 
 source "./bootstrap.sh"

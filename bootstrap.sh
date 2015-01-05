@@ -1,3 +1,6 @@
+# Bootstrap #
+#############
+
 source "./homebrew.sh"
 source "./profiles.sh"
 source "./preferences.sh"
