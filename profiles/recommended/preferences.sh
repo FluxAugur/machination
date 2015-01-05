@@ -30,6 +30,11 @@ function set_preferences {
   # Debugging Preferences
   osx_debug_mode                                                      enabled
 
+  # Dialogs Preferences
+  osx_dialogs_auto_expanding_print_dialog                             enabled
+  osx_dialogs_auto_expanding_save_dialog                              enabled
+  osx_dialogs_file_view_mode                                          list
+
   # Printing Preferences
   osx_printing_quit_when_finished                                     enabled
 
