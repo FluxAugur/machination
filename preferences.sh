@@ -54,3 +54,4 @@ function osx_preferences_apply {
 source './preferences/activity_monitor.sh'
 source './preferences/airdrop.sh'
 source './preferences/airport.sh'
+source './preferences/chrome.sh'
