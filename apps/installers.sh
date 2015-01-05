@@ -28,3 +28,14 @@ function install_pagekite {
     "$pagekite_local_binary" --signup
   fi
 }
+
+# Install application from Mac App Store
+function install_mac_app_store_app {
+  local app_name="$1"; shift 1; # TODO Move shift after user feedback added
+
+  if ! [ -a "/Applications/$app_name" ]; then
+    echo "$app_name is in the Mac App Store."
+    echo "Press <RETURN> to continue..."
+    read
+  fi
+}
