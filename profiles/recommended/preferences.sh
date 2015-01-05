@@ -9,5 +9,8 @@ function set_preferences {
   osx_activity_monitor_processes_to_list            all_processes
   osx_activity_monitor_sort_by_column_in_direction  cpu_usage         descending
 
+  # AirDrop Preferences
+  osx_airdrop_access_all_interfaces                 enabled
+
   osx_preferences_apply
 }
