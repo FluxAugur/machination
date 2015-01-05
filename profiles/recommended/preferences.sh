@@ -24,5 +24,8 @@ function set_preferences {
   chrome_allow_swipe_to_navigate                                      disabled
   chrome_allow_extension_install_sources                              'https://gist.githubusercontent.com/'             'http://userscripts.org/*'
 
+  # Printing Preferences
+  osx_printing_quit_when_finished                                     enabled
+
   osx_preferences_apply
 }
