@@ -52,3 +52,4 @@ function osx_preferences_apply {
 }
 
 source './preferences/activity_monitor.sh'
+source './preferences/airdrop.sh'
