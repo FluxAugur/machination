@@ -66,3 +66,13 @@ function osx_airport_require_password_to_change_networks {
 
   sudo $path_to_airport_binary prefs RequireAdminNetworkChange=${enabled}    
 }
+
+# Toggle Airport "Require password to turn wi-fi on or off" preference
+function osx_airport_require_password_to_toggle_power {
+  local enabled; if [[ "$1" == "enabled" ]]; then enabled="YES"; else enabled="NO"; fi
+
+  echo "PREFERENCE: Airport - Toggle \"require password to toggle power\" enabled is ${enabled}."
+  shift 1;
+
+  sudo $path_to_airport_binary prefs RequireAdminPowerToggle=${enabled}  
+}
