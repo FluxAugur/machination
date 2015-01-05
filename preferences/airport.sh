@@ -36,3 +36,13 @@ function osx_airport_join_mode_fallback {
 
   sudo $path_to_airport_binary JoinModeFallback=${mode}
 }
+
+# Toggle Airport "Remember recent networks" preference
+function osx_airport_remember_recent_networks {
+  local enabled; if [[ "$1" == "enabled" ]]; then enabled="YES"; else enabled="NO"; fi
+
+  echo "PREFERENCE: Airport - Toggle \"remember recent networks\" enabled is ${enabled}."
+  shift 1;
+
+  sudo $path_to_airport_binary prefs RememberRecentNetworks=${enabled}
+}
