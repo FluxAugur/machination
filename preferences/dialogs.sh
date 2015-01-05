@@ -11,6 +11,16 @@ function osx_dialogs_auto_expanding_print_dialog {
   defaults write NSGlobalDomain PMPrintExpandedStateForPrint2 -bool $enabled
 }
 
+# Toggle whether save panel is expanded
+function osx_dialogs_auto_expanding_save_dialog {
+  local enabled; if [[ "$1" == "enabled" ]]; then enabled="true"; else enabled="false"; fi
+
+  echo "  + PREFERENCE: Dialogs - Toggle save panel expanded enabled is ${enabled} ($1)."
+
+  defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool $enabled
+  defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool $enabled
+}
+
 # Set file dialog view mode
 function osx_dialogs_file_view_mode {
   local mode="$1";
@@ -24,7 +34,7 @@ function osx_dialogs_file_view_mode {
     mode="$mode";;
   esac
 
-  echo "  + PREFERENCE: Desktop - File dialog mode is ${mode} ($1)."
+  echo "  + PREFERENCE: Dialogs - File dialog mode is ${mode} ($1)."
 
   defaults write NSGlobalDomain NavPanelFileListModeForOpenMode -int $mode
   defaults write NSGlobalDomain NavPanelFileListModeForSaveMode -int $mode
