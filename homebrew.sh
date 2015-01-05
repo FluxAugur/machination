@@ -6,11 +6,11 @@ function install_or_upgrade_package {
   local package_name=$1; shift 1;
 
   if [ -z "$(/usr/local/bin/brew list -1 | grep $package_name)" ]; then
-    echo "HOMEBREW: Installing $package_name."
+    echo "~ HOMEBREW: Installing $package_name."
 
     brew install $package_name
   else
-    echo "HOMEBREW: Upgrading $package_name."
+    echo "~ HOMEBREW: Upgrading $package_name."
 
     brew upgrade $package_name 2> /dev/null
   fi

@@ -13,7 +13,7 @@ END
 
 # Apply preferences
 function osx_preferences_apply {
-  echo "Resetting applications for changed preferences to take effect."
+  echo "\nResetting applications for updated preferences to take effect."
 
   osx_preferences_synchronize com.apple.Finder
 
@@ -48,8 +48,9 @@ function osx_preferences_apply {
   done
 
   echo ""
-  echo "Some changed preferences require a restart to take effect."
+  echo "Some updated preferences require a restart to take effect.\n"
 }
 
 source './preferences/activity_monitor.sh'
 source './preferences/airdrop.sh'
+source './preferences/airport.sh'
