@@ -39,3 +39,14 @@ function install_mac_app_store_app {
     read
   fi
 }
+
+# Install or upgrade application from Homebrew
+function install_or_upgrade_app {
+  local app_name="$1"; shift 1; # TODO Move shift after user feedback added
+
+  if $(brew cask list | grep $app_name); then
+    brew cask upgrade $app_name
+  else
+    brew cask install $app_name
+  fi
+}
