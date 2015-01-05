@@ -35,6 +35,10 @@ function set_preferences {
   osx_dialogs_auto_expanding_save_dialog                              enabled
   osx_dialogs_file_view_mode                                          list
 
+  # Disk Images Preferences
+  osx_disk_images_auto_mount                                          enabled
+  osx_disk_images_verification                                        enabled
+  
   # Printing Preferences
   osx_printing_quit_when_finished                                     enabled
 
