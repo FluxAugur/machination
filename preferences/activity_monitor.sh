@@ -21,3 +21,17 @@ function osx_activity_monitor_icon_mode {
 
   defaults write com.apple.ActivityMonitor IconType -int $mode
 }
+
+# Show processes as list items in Activity Monitor
+function osx_activity_monitor_processes_to_list {
+  local mode;
+
+  case "$1" in
+  all_processes)
+    mode="0";;
+  *)
+    mode="$1";;
+  esac
+
+  defaults write com.apple.ActivityMonitor ShowCategory -int $mode
+}
