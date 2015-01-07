@@ -142,3 +142,12 @@ function osx_dock_orientation {
   defaults write com.apple.dock orientation $orientation
   defaults write com.apple.dock pinning -string $pinning
 }
+
+# Toggle whether showing the Dock fullscreen is delayed
+function osx_dock_full_screen_delay {
+  local enabled; if [[ "$1" == "enabled" ]]; then enabled="true"; else enabled="false"; fi
+
+  echo "  + PREFERENCE: Dock - Toggle whether showing Dock fullscreen is delayed enabled is ${enabled} ($1)."
+
+  defaults write com.apple.dock autohide-fullscreen-delayed -bool $enabled
+}
