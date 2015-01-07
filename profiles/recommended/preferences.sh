@@ -38,7 +38,12 @@ function set_preferences {
   # Disk Images Preferences
   osx_disk_images_auto_mount                                          enabled
   osx_disk_images_verification                                        enabled
-  
+
+  # Disk Utility Preferences
+  osx_disk_utility_advanced_image_options                             enabled
+  osx_disk_utility_hidden_partitions                                  enabled
+  osx_disk_utility_unsupported_networks                               enabled
+
   # Printing Preferences
   osx_printing_quit_when_finished                                     enabled
 
