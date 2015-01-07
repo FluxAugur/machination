@@ -37,3 +37,23 @@ function osx_dock_only_show_running_apps {
 
   defaults write com.apple.dock static-only -bool $enabled
 }
+
+# Toggle whether to automatically hide the Dock
+function osx_dock_autohide {
+  local enabled; if [[ "$1" == "enabled" ]]; then enabled="true"; else enabled="false"; fi; shift 1;
+  local delay="$1"; shift 1;
+  local speed="$1"; shift 1;
+
+  echo "  + PREFERENCE: Dock - Toggle whether to automatically hide the Dock enabled is ${enabled} ($delay $speed)."
+
+  defaults write com.apple.dock autohide -bool $enabled
+
+  # Set the delay when automatically hiding the Dock
+  if [[ "$delay" != "" ]]; then
+    defaults write com.apple.dock autohide-delay -float $delay
+  fi
+
+  if [[ "$speed" != "" ]]; then
+    defaults write com.apple.dock autohide-time-modifier -float $speed
+  fi
+}
