@@ -113,3 +113,18 @@ function osx_dock_icon_size {
 
   defaults write com.apple.dock -tilesize -int $size
 }
+
+# Toggle whether the Dock icons magnify as the cursor gets closer
+# Set the size of icons (in pixels) when the icon is magnified
+function osx_dock_magnification {
+  local enabled; if [[ "$1" == "enabled" ]]; then enabled="1"; else enabled="0"; fi; shift 1;
+  local icon_size="$1"; shift 1;
+
+  echo "  + PREFERENCE: Dock - Toggle whether Dock icons maginify as cursor gets closer enabled is ${enabled} ($delay $speed)."
+
+  defaults write com.apple.dock magnification -int $enabled
+
+  if [[ "$icon_size" != "" ]]; then
+    defaults write com.apple.dock largesize -int $icon_size
+  fi
+}
