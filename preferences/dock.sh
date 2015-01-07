@@ -2,7 +2,7 @@
 ########
 
 # Toggle whether hidden applications are dimmed in Dock
-function osx_dock_hidden_app_dimming {
+function osx_dock_hidden_application_dimming {
   local enabled; if [[ "$1" == "enabled" ]]; then enabled="true"; else enabled="false"; fi
 
   echo "  + PREFERENCE: Dock - Toggle whether hidden applications are dimmed in Dock enabled is ${enabled} ($1)."
@@ -30,7 +30,7 @@ function osx_dock_itunes_notifications {
 }
 
 # Toggle whether to only show running applications in Dock
-function osx_dock_only_show_running_apps {
+function osx_dock_only_show_running_applications {
   local enabled; if [[ "$1" == "enabled" ]]; then enabled="true"; else enabled="false"; fi
 
   echo "  + PREFERENCE: Dock - Toggle whether to only show running applications in Dock enabled is ${enabled} ($1)."
@@ -85,4 +85,13 @@ function osx_dock_disable {
 
   defaults write com.apple.dock autohide -bool true
   defaults write com.apple.dock autohide-delay -float 999999
+}
+
+# Toggle whether application icons should bounce in the Dock
+function osx_dock_icon_bounce_on_application_launch {
+  local enabled; if [[ "$1" == "enabled" ]]; then enabled="true"; else enabled="false"; fi; shift 1;
+
+  echo "  + PREFERENCE: Dock - Toggle whether application icons should bounce in the Dock enabled is ${enabled} ($delay $speed)."
+
+  defaults write com.apple.dock launchanim -bool $enabled
 }
