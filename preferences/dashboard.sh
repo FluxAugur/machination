@@ -1,7 +1,7 @@
 # Dashboard #
 #############
 
-source './keyboard_shortcuts.sh'
+source './preferences/keyboard_shortcuts.sh'
 
 # Toggle whether Dashboard is enabled
 function osx_dashboard {
@@ -11,9 +11,9 @@ function osx_dashboard {
 
   defaults write com.apple.dashboard mcx-disabled -bool $enabled
 
-  local dashboard_keyboard_shortcut_ids=(62 63)
+  #local dashboard_keyboard_shortcut_ids=(62 63)
 
-  for keyboard_shortcut_id in "${dashboard_keyboard_shortcut_ids[@]}"; do
-    osx_keyboard_shortcut_toggle $keyboard_shortcut_id $enabled
-  done
+  #for keyboard_shortcut_id in "${dashboard_keyboard_shortcut_ids[$@]}"; do
+    #osx_keyboard_shortcut_toggle $keyboard_shortcut_id $enabled
+  #done
 }
