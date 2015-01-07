@@ -104,3 +104,12 @@ function osx_dock_icon_bounce_on_application_activity {
 
   defaults write com.apple.dock no-bouncing -bool $enabled
 }
+
+# Set the size of icons (in pixels) in Dock
+function osx_dock_icon_size {
+  local size="$1"; shift 1;
+
+  echo "  + PREFERENCE: Dock - Set size of icons (in pixels) in the Dock enabled is ${enabled} ($delay $speed)."
+
+  defaults write com.apple.dock -tilesize -int $size
+}
