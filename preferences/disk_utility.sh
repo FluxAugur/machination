@@ -18,3 +18,12 @@ function osx_disk_utility_hidden_partitions {
 
   defaults write com.apple.DiskUtility DUShowEveryPartition -int $enabled
 }
+
+# Toggle whether to show unsupported networks in Disk Utility
+function osx_disk_utility_unsupported_partitions {
+  local enabled; if [[ "$1" == "enabled" ]]; then enabled="true"; else enabled="false"; fi
+
+  echo "  + PREFERENCE: Disk Utility - Toggle Disk Utility show unsupported networks enabled is ${enabled} ($1)."
+
+  defaults write com.apple.DiskUtility DUShowUnsupportedNetworks -bool $enabled
+}
