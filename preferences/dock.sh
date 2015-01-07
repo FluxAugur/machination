@@ -78,3 +78,11 @@ function osx_dock_clear {
 
   #sqlite3 $HOME/Library/Application\ Support/Dock/*-*.db "DELETE FROM apps; DELETE FROM groups WHERE rowid>2; DELETE FROM items WHERE rowid>4; DELETE FROM widgets;" && killall Dock
 }
+
+# Disable the Dock by setting a long autohide-delay
+function osx_dock_disable {
+  echo "  + PREFERENCE: Dock - Disable the Dock."
+
+  defaults write com.apple.dock autohide -bool true
+  defaults write com.apple.dock autohide-delay -float 999999
+}
