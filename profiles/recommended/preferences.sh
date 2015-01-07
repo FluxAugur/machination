@@ -44,6 +44,17 @@ function set_preferences {
   osx_disk_utility_hidden_partitions                                  enabled
   osx_disk_utility_unsupported_networks                               enabled
 
+  # Dock Preferences
+  osx_dock_hidden_application_dimming                                 enabled
+  osx_dock_indicator_lights                                           disabled
+  osx_dock_autohide                                                   enabled                                           0.0                           0.25
+  osx_dock_icon_bounce_on_application_launch                          disabled
+  osx_dock_icon_bounce_on_application_activity                        disabled
+  osx_dock_full_screen_delay                                          disabled
+  osx_dock_icon_size                                                  40
+  osx_dock_magnification                                              enabled                                           60
+  osx_dock_clear
+
   # Printing Preferences
   osx_printing_quit_when_finished                                     enabled
 
