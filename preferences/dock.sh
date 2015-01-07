@@ -57,3 +57,24 @@ function osx_dock_autohide {
     defaults write com.apple.dock autohide-time-modifier -float $speed
   fi
 }
+
+# Clear pinned icons from the Dock
+#
+# Prevent launchpad from reappearing
+# Remove all the pinned icons
+function osx_dock_clear {
+  echo "  + PREFERENCE: Dock - Clear pinned icons from the Dock."
+
+  defaults write com.apple.dock checked-for-launchpad -bool true
+  defaults write com.apple.dock persistent-apps -array ""
+  defaults write com.apple.dock persistent-others -array ""
+
+  rm -f $HOME/Library/Application\ Support/Dock/*db 2> /dev/null && killall Dock
+
+  for (( i = 0; i < 5; i++ )); do
+    echo "."; sleep 1
+    echo "."; sleep 1
+  done
+
+  #sqlite3 $HOME/Library/Application\ Support/Dock/*-*.db "DELETE FROM apps; DELETE FROM groups WHERE rowid>2; DELETE FROM items WHERE rowid>4; DELETE FROM widgets;" && killall Dock
+}
