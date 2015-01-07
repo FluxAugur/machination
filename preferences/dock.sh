@@ -18,3 +18,13 @@ function osx_dock_indicator_lights {
 
   defaults write com.apple.dock show-process-indicators -bool $enabled
 }
+
+# Toggle whether iTunes notifications are displayed in Dock
+function osx_dock_itunes_notifications {
+  local enabled; if [[ "$1" == "enabled" ]]; then enabled="true"; else enabled="false"; fi
+
+  echo "  + PREFERENCE: Dock - Toggle whether iTunes notifications are displayed in Dock enabled is ${enabled} ($1)."
+
+  defaults write com.apple.dock itunes-notifications -bool $enabled
+  defaults write com.apple.dock notifications-always-show-image -bool $enabled
+}
