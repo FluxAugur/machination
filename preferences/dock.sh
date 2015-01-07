@@ -28,3 +28,12 @@ function osx_dock_itunes_notifications {
   defaults write com.apple.dock itunes-notifications -bool $enabled
   defaults write com.apple.dock notifications-always-show-image -bool $enabled
 }
+
+# Toggle whether to only show running applications in Dock
+function osx_dock_only_show_running_apps {
+  local enabled; if [[ "$1" == "enabled" ]]; then enabled="true"; else enabled="false"; fi
+
+  echo "  + PREFERENCE: Dock - Toggle whether to only show running applications in Dock enabled is ${enabled} ($1)."
+
+  defaults write com.apple.dock static-only -bool $enabled
+}
