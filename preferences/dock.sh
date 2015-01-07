@@ -89,27 +89,27 @@ function osx_dock_disable {
 
 # Toggle whether application icons should bounce on launch in the Dock
 function osx_dock_icon_bounce_on_application_launch {
-  local enabled; if [[ "$1" == "enabled" ]]; then enabled="true"; else enabled="false"; fi; shift 1;
+  local enabled; if [[ "$1" == "enabled" ]]; then enabled="true"; else enabled="false"; fi;
 
-  echo "  + PREFERENCE: Dock - Toggle whether application icons should bounce on launch in the Dock enabled is ${enabled} ($delay $speed)."
+  echo "  + PREFERENCE: Dock - Toggle whether application icons should bounce on launch in the Dock enabled is ${enabled} ($1)."
 
   defaults write com.apple.dock launchanim -bool $enabled
 }
 
 # Toggle whether application icons should bounce on activity in the Dock
 function osx_dock_icon_bounce_on_application_activity {
-  local enabled; if [[ "$1" == "enabled" ]]; then enabled="true"; else enabled="false"; fi; shift 1;
+  local enabled; if [[ "$1" == "enabled" ]]; then enabled="true"; else enabled="false"; fi;
 
-  echo "  + PREFERENCE: Dock - Toggle whether application icons should bounce on activity in the Dock enabled is ${enabled} ($delay $speed)."
+  echo "  + PREFERENCE: Dock - Toggle whether application icons should bounce on activity in the Dock enabled is ${enabled} ($1)."
 
   defaults write com.apple.dock no-bouncing -bool $enabled
 }
 
 # Set the size of icons (in pixels) in Dock
 function osx_dock_icon_size {
-  local size="$1"; shift 1;
+  local size="$1";
 
-  echo "  + PREFERENCE: Dock - Set size of icons (in pixels) in the Dock enabled is ${enabled} ($delay $speed)."
+  echo "  + PREFERENCE: Dock - Set size of icons (in pixels) in the Dock enabled is ${size} ($1)."
 
   defaults write com.apple.dock -tilesize -int $size
 }
@@ -120,11 +120,25 @@ function osx_dock_magnification {
   local enabled; if [[ "$1" == "enabled" ]]; then enabled="1"; else enabled="0"; fi; shift 1;
   local icon_size="$1"; shift 1;
 
-  echo "  + PREFERENCE: Dock - Toggle whether Dock icons maginify as cursor gets closer enabled is ${enabled} ($delay $speed)."
+  echo "  + PREFERENCE: Dock - Toggle whether Dock icons maginify as cursor gets closer enabled is ${enabled} ($icon_size)."
 
   defaults write com.apple.dock magnification -int $enabled
 
   if [[ "$icon_size" != "" ]]; then
     defaults write com.apple.dock largesize -int $icon_size
   fi
+}
+
+# Set position of the Dock relative to the Desktop
+#
+# Mode: top | right | bottom | left
+# Mode: start | middle | end
+function osx_dock_orientation {
+  local orientation="$1"; shift 1;
+  local pinning="$1"; shift 1;
+
+  echo "  + PREFERENCE: Dock - Set position of the Dock relative to the Desktop orientation is ${orientation} ($pinning)."
+
+  defaults write com.apple.dock orientation $orientation
+  defaults write com.apple.dock pinning -string $pinning
 }
