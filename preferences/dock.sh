@@ -87,11 +87,20 @@ function osx_dock_disable {
   defaults write com.apple.dock autohide-delay -float 999999
 }
 
-# Toggle whether application icons should bounce in the Dock
+# Toggle whether application icons should bounce on launch in the Dock
 function osx_dock_icon_bounce_on_application_launch {
   local enabled; if [[ "$1" == "enabled" ]]; then enabled="true"; else enabled="false"; fi; shift 1;
 
-  echo "  + PREFERENCE: Dock - Toggle whether application icons should bounce in the Dock enabled is ${enabled} ($delay $speed)."
+  echo "  + PREFERENCE: Dock - Toggle whether application icons should bounce on launch in the Dock enabled is ${enabled} ($delay $speed)."
 
   defaults write com.apple.dock launchanim -bool $enabled
+}
+
+# Toggle whether application icons should bounce on activity in the Dock
+function osx_dock_icon_bounce_on_application_activity {
+  local enabled; if [[ "$1" == "enabled" ]]; then enabled="true"; else enabled="false"; fi; shift 1;
+
+  echo "  + PREFERENCE: Dock - Toggle whether application icons should bounce on activity in the Dock enabled is ${enabled} ($delay $speed)."
+
+  defaults write com.apple.dock no-bouncing -bool $enabled
 }
